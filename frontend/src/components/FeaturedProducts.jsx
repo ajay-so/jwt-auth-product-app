@@ -9,15 +9,13 @@ function FeaturedProducts() {
         axios
             .get("https://mybazaar-backend.onrender.com/products/featured")
             .then((res) => {
-                if (Array.isArray(res.data) && res.data.length > 0) {
-                    setFeaturedProduct(res.data[0]); // Taking first product if array
-                } else {
-                    setFeaturedProduct(res.data); // Assuming it's an object
-                }
+                const data = res.data;
+                // If response is array, use the first product
+                setFeaturedProduct(Array.isArray(data) ? data[0] : data);
                 setLoading(false);
             })
             .catch((err) => {
-                console.log(err);
+                console.log("Error fetching featured product:", err);
                 setLoading(false);
             });
     }, []);
@@ -38,9 +36,9 @@ function FeaturedProducts() {
                 <div className="col-4 offset-4 mt-4">
                     <div className="card-body border border-success rounded shadow-sm p-3">
                         <h4><b>Name:</b> {featuredProduct.name}</h4>
-                        <b>Price:</b> ${featuredProduct.price} <br />
+                        <b>Price:</b> ₹{featuredProduct.price} <br />
                         <b>Rating:</b> {featuredProduct.rating} <br />
-                        <b>Created At:</b> {new Date(featuredProduct.createdAt).toLocaleDateString()} <br />
+                        <b>Created At:</b> {new Date(featuredProduct.createdAt)?.toLocaleDateString()} <br />
                         <b>Company:</b> {featuredProduct.company}
                     </div>
                 </div>
