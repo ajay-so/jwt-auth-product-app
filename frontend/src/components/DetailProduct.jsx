@@ -64,7 +64,7 @@ function DetailProduct() {
             <h3 className="text-center mb-4 text-success mt-4">Product Details</h3>
             <hr />
             <div className="row">
-                <div className="col-4 offset-4 mt-4">
+                <div className="col-10 offset-1 col-sm-6 offset-sm-3 col-md-4 offset-md-4 mt-4">
                     <div className="card-body border border-success rounded shadow-sm">
                         <p className="card-text p-4">
                             <h4><b>Name:</b> {product.name}</h4>

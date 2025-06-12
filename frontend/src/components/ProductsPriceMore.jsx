@@ -25,7 +25,7 @@ function ProductsPriceMore() {
   }, [value]);
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-4">
       <h3 className="text-success text-center">
         Products with Price More Than ₹{value}
       </h3>
@@ -35,21 +35,18 @@ function ProductsPriceMore() {
       ) : products.length > 0 ? (
         <div className="row">
           {products.map((product) => (
-            <div className="col-md-4 mb-3" key={product._id}>
+            <div className="col-12 col-sm-6 col-md-4 col-xl-3 p-3" key={product._id}>
               <Link
                 to={`/products/${product._id}`}
                 className="text-dark text-decoration-none"
               >
-                <div className="card p-3 border border-success product_card h-100">
+                <div className="card p-2 border border-success product_card h-100">
                   <h5>Name: {product.name}</h5>
                   <p>
-                    <b>Price:</b> ₹{product.price}
-                  </p>
-                  <p>
-                    <b>Rating:</b> {product.rating}
-                  </p>
-                  <p>
-                    <b>Company:</b> {product.company}
+                    <b>Price:</b> ₹{product.price}<br />
+                    <b>Rating:</b> {product.rating}<br />
+                    <b>Company:</b> {product.company}<br />
+                    <b>Created At:</b> {new Date(product.createdAt).toLocaleDateString()}
                   </p>
                 </div>
               </Link>
