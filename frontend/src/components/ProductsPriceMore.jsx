@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import "./index.css";
-
 
 function ProductsPriceMore() {
   const { value } = useParams();
@@ -12,7 +11,9 @@ function ProductsPriceMore() {
   useEffect(() => {
     const fetchMoreProducts = async () => {
       try {
-        const res = await axios.get(`https://mybazaar-backend.onrender.com/products/price/more/${value}`);
+        const res = await axios.get(
+          `https://mybazaar-backend.onrender.com/products/price/more/${value}`
+        );
         setProducts(res.data);
       } catch (err) {
         console.error("Error fetching more-price products:", err);
@@ -25,23 +26,34 @@ function ProductsPriceMore() {
 
   return (
     <div className="container mt-5">
-      <h3 className="text-success text-center">Products with Price More Than ₹{value}</h3>
+      <h3 className="text-success text-center">
+        Products with Price More Than ₹{value}
+      </h3>
       <hr />
       {loading ? (
         <h5 className="text-center">Loading...</h5>
       ) : products.length > 0 ? (
         <div className="row">
           {products.map((product) => (
-            <Link to={`/products/${product._id}`} className="text-dark text-decoration-none">
-              <div className="col-md-4 mb-3 product_card" key={product._id}>
-                <div className="card p-3 border border-success">
+            <div className="col-md-4 mb-3" key={product._id}>
+              <Link
+                to={`/products/${product._id}`}
+                className="text-dark text-decoration-none"
+              >
+                <div className="card p-3 border border-success product_card h-100">
                   <h5>Name: {product.name}</h5>
-                  <p><b>Price:</b> ₹{product.price}</p>
-                  <p><b>Rating:</b> {product.rating}</p>
-                  <p><b>Company:</b> {product.company}</p>
+                  <p>
+                    <b>Price:</b> ₹{product.price}
+                  </p>
+                  <p>
+                    <b>Rating:</b> {product.rating}
+                  </p>
+                  <p>
+                    <b>Company:</b> {product.company}
+                  </p>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </div>
           ))}
         </div>
       ) : (
