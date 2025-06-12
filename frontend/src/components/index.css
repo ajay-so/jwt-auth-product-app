@@ -1,0 +1,9 @@
+.form-control:focus {
+    border-color: #28a745 !important; 
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5) !important;
+}
+
+.product_card:hover{ 
+    background-color: rgb(253, 253, 223) !important;
+    opacity: 0.8;
+}
