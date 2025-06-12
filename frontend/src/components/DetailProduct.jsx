@@ -18,7 +18,7 @@ function DetailProduct() {
     // Fetch product details
     useEffect(() => {
         axios
-            .get(`https://jwt-auth-product-app.onrender.com/products/${id}`)
+            .get(`https://mybazaar-backend.onrender.com/products/${id}`)
             .then((res) => setProduct(res.data))
             .catch((err) => console.log(err));
     }, [id]);
@@ -33,7 +33,7 @@ function DetailProduct() {
         }
 
         axios
-            .delete(`https://jwt-auth-product-app.onrender.com/products/${id}`, {
+            .delete(`https://mybazaar-backend.onrender.com/products/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

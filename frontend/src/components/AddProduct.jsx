@@ -41,7 +41,7 @@ function AddProduct() {
         }
 
         try {
-            const response = await axios.post("https://jwt-auth-product-app.onrender.com/products/add", formData, {
+            const response = await axios.post("https://mybazaar-backend.onrender.com/products/add", formData, {
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`,

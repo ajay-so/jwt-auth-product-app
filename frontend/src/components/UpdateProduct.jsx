@@ -32,7 +32,7 @@ function UpdateProduct() {
 
         // Fetch product details
         axios
-            .get(`https://jwt-auth-product-app.onrender.com/products/${id}`, {
+            .get(`https://mybazaar-backend.onrender.com/products/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -71,7 +71,7 @@ function UpdateProduct() {
 
         try {
             const response = await axios.patch(
-                `http://localhost:3000/products/${id}`,
+                `https://mybazaar-backend.onrender.com/products/${id}`,
                 formData,
                 {
                     headers: {
