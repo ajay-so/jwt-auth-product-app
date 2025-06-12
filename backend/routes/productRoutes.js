@@ -11,7 +11,7 @@ const {
   deleteProduct, 
   updateProduct,
   detailedProduct,
-} = require("../controllers/product");
+} = require("../Controllers/product");
 
 // Get all products
 router.get("/", getAllProducts);
