@@ -10,6 +10,8 @@ import DetailProduct from './components/DetailProduct';
 import UpdateProduct from './components/UpdateProduct';
 import FeaturedProducts from './components/FeaturedProducts';
 import NotFound from './components/Notfound';
+import ProductsPriceLess from './components/ProductsPriceLess';
+import ProductsPriceMore from './components/ProductsPriceMore';
 
 // Rendering the app
 createRoot(document.getElementById('root')).render(
@@ -26,7 +28,8 @@ createRoot(document.getElementById('root')).render(
           <Route path="/products/featured" element={<FeaturedProducts />} />
           <Route path="/products/update/:id" element={<UpdateProduct />} />
           <Route path="/products/newProduct" element={<AddProduct />} />
-          
+          <Route path="/products/price/less/:value" element={<ProductsPriceLess />} />
+          <Route path="/products/price/more/:value" element={<ProductsPriceMore />} />
           <Route path="/auth/signup" element={<SignUp />} />
           <Route path="/auth/login" element={<Login />} />
 

@@ -6,7 +6,8 @@ const {
   getAllProducts, 
   getFeaturedProducts, 
   getProductsByPrice, 
-  getProductsByRating, 
+  getProductByLessPrice,
+  getProductByMorePrice,
   addProduct, 
   deleteProduct, 
   updateProduct,
@@ -20,10 +21,10 @@ router.get("/", getAllProducts);
 router.get("/featured", getFeaturedProducts);
 
 // Get products by price
-router.get("/price/:value", getProductsByPrice);
+router.get("/price/less/:value", getProductsByPrice);
 
-// Get products by rating
-router.get("/rating/:value", getProductsByRating);
+// Get products by less price
+router.get("/price/more/:value", getProductByMorePrice);
 
 // Get detailed product
 router.get("/:id", detailedProduct);

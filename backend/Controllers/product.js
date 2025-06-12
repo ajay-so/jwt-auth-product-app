@@ -72,21 +72,33 @@ const getProductsByPrice = async (req, res) => {
   }
 };
 
-const getProductsByRating = async (req, res) => {
+// get products by less price
+const getProductByLessPrice = async (req, res) => {
   try {
     const { value } = req.params;
-    const products = await Product.find({ rating: { $gte: value } });
+    const products = await Product.find({ price: { $lt: value } });
     res.status(200).json(products);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
-};
+}
+
+const getProductByMorePrice = async (req, res) => {
+  try {
+    const { value } = req.params;
+    const products = await Product.find({ price: { $gt: value } });
+    res.status(200).json(products);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+}
 
 module.exports = {
   getAllProducts,
   getFeaturedProducts,
   getProductsByPrice,
-  getProductsByRating,
+  getProductByLessPrice,
+  getProductByMorePrice,
   addProduct,
   deleteProduct,
   updateProduct,
