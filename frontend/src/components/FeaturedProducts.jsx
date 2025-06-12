@@ -7,7 +7,7 @@ function FeaturedProducts() {
 
     useEffect(() => {
         axios
-            .get("http://localhost:3000/products/featured")
+            .get("https://jwt-auth-product-app.onrender.com/products/featured")
             .then((res) => {
                 if (Array.isArray(res.data) && res.data.length > 0) {
                     setFeaturedProduct(res.data[0]); // Taking first product if array

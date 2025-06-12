@@ -32,7 +32,7 @@ function UpdateProduct() {
 
         // Fetch product details
         axios
-            .get(`http://localhost:3000/products/${id}`, {
+            .get(`https://jwt-auth-product-app.onrender.com/products/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
