@@ -23,7 +23,7 @@ function Navbar() {
         <nav className="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm sticky-top">
             <div className="container">
                 <Link className="navbar-brand d-flex align-items-center" to="/">
-                    <b className="text-success">PrimeBazaar</b>
+                    <b className="text-success">MyBazaar</b>
                 </Link>
                 <button
                     className="navbar-toggler"
